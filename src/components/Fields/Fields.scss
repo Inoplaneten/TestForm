@@ -1,0 +1,99 @@
+.inputBox {
+    width: 100%;
+    margin-bottom: 40px;
+    .labelForm {
+        display: block;
+        margin-bottom: 8px;
+        color: #636363;
+        font-weight: 600;
+    }
+    .labelForm.requiered {
+        &::after {
+            content: '*';
+            display: inline-block;
+            margin-left: 4px;
+            color: #F15557;
+        }
+    }
+    .fieldText, .fieldTextarea {
+        display: block;
+        width: 100%;
+        background-color: #F9F9F9;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-size: 16px;
+    }
+
+    .fieldText.error, .fieldTextarea.error {
+        border-color: #F15557;
+    }
+
+    .fieldTextarea {
+        min-height: 168px;
+    }
+
+    .error-message {
+        display: block;
+        margin-top: 8px;
+        font-size: 12px;
+        color: #F15557;
+    }
+
+    .fieldUpload {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(51, 51, 51, 0.2);
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 14px 24px;
+        &__info {
+            display: flex;
+            align-items: center;
+            color: #333333;
+        }
+        &__icon {
+            margin-right: 16px;
+        }
+        &__counter {
+            color: #A7A7A7;
+        }
+    }
+}
+
+#form-1 {
+    .inputBox:first-child {
+        width: 56.5%
+    }
+
+    .inputBox:nth-child(2) {
+        width: 36.3%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #form-1 {
+        .inputBox:first-child {
+            width: 100%;
+        }
+
+        .inputBox:nth-child(2) {
+            width: 100%;
+        }
+    }
+
+    .inputBox {
+        margin-bottom: 27px;
+        .fieldText, .fieldTextarea {
+            font-size: 13px;
+        }
+        .fieldUpload {
+            flex-direction: column;
+            align-items: flex-start;
+            &__info {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

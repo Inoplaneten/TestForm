@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 400 14px 'Open Sans', sans-serif;
+  background: linear-gradient(233.1deg, #216190 19.65%, #0834D0 81.25%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+input, button, textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  transition: all .4s ease;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+textarea {
+  resize: none;
+}
+
+*::-webkit-input-placeholder {color:#A7A7A7; transition: all .4s ease;}
+*::-moz-placeholder          {color:#A7A7A7; transition: all .4s ease;}/* Firefox 19+ */
+*:-moz-placeholder           {color:#A7A7A7; transition: all .4s ease;}/* Firefox 18- */
+*:-ms-input-placeholder      {color:#A7A7A7; transition: all .4s ease;}
+
+*:focus::-webkit-input-placeholder {color:#333333;}
+*:focus::-moz-placeholder          {color:#333333;}/* Firefox 19+ */
+*:focus:-moz-placeholder           {color:#333333;}/* Firefox 18- */
+*:focus:-ms-input-placeholder      {color:#333333;}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.title-section {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.sectionForms {
+  padding: 60px 0 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 540px;
+  }
+
+  .title-section {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 90%;
+  }
+
+  .title-section {
+    font-size: 30px;
+  }
+}
