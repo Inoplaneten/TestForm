@@ -1,79 +1,56 @@
-import { UPDATE_INPUT_TEXT_VALUE, UPDATE_INPUT_FILE, NOVALIDATE_INPUT_VALUE, DEACTIVE_FORM, PREV_FORM, NEXT_FORM, GET_WAIT_FORM, SUCCES_FORM} from "../actionTypes/actionTypes";
+import { UPDATE_INPUT_TEXT_VALUE, NOVALIDATE_INPUT_VALUE, DEACTIVE_FORM, PREV_FORM, NEXT_FORM, GET_WAIT_FORM, SUCCES_FORM} from "../actionTypes/actionTypes";
 import {isEmpty, isWithinRange} from '../../modules/validators';
 
 const initialState = {
-    step: 1,
-    name: 'formAboutCompany',
+    step: 2,
+    name: 'formInfoUser',
     fields: {
-        companyName: {
+        nameUser: {
             type: 'text',
-            label: 'Your company name',
-            placeholder: 'Type text',
-            name: 'companyName',
+            label: 'Your name',
+            placeholder: 'Your name',
+            name: 'nameUser',
             value: '',
-            requiered: false,
+            requiered: true,
             error: false,
             isErrorMessage: '',
             minLength: 5,
-            maxLength: 10,
-            validators: {isWithinRange}
-        },
-        numberOfPeople: {
-            type: 'number',
-            label: 'Number of people',
-            placeholder: '1-99',
-            name: 'numberOfPeople',
-            value: '',
-            requiered: true,
-            error: false,
-            isErrorMessage: '',
-            minLength: 1,
-            maxLength: 99,
+            maxLength: 15,
             validators: {isEmpty, isWithinRange}
         },
-        bussinesArea: {
+        lastNameUser: {
             type: 'text',
-            label: 'Bussines Area',
-            placeholder: 'Design, Marketing, Development, etc',
-            name: 'bussinesArea',
+            label: 'Your last name',
+            placeholder: 'Your lastname',
+            name: 'lastNameUser',
             value: '',
             requiered: true,
             error: false,
             isErrorMessage: '',
-            minLength: 6,
-            maxLength: 8,
+            minLength: 8,
+            maxLength: 15,
             validators: {isEmpty, isWithinRange}
         },
-        description: {
-            type: 'textarea',
-            label: 'Description',
-            placeholder: 'Description',
-            name: 'description',
+        addressUser: {
+            type: 'text',
+            label: 'Your address',
+            placeholder: 'Your address',
+            name: 'addressUser',
             value: '',
             requiered: true,
             error: false,
             isErrorMessage: '',
             minLength: 10,
-            maxLength: 50,
+            maxLength: 20,
             validators: {isEmpty, isWithinRange}
-        },
-        uploadFiles: {
-            type: 'file',
-            name: 'uploadFiles',
-            requiered: false,
-            error: false,
-            isErrorMessage: '',
-            quantity: 0,
-            minLength: 1,
-            maxLength: 10
         }
     },
-    isActive: true,
+    isActive: false,
     succesForm: false,
     isLoading: false
 }
 
-const formAboutCompany = (state = initialState, action) => {
+const formInfoUser = (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_INPUT_TEXT_VALUE:
             if(state.isActive) {
@@ -92,23 +69,7 @@ const formAboutCompany = (state = initialState, action) => {
             }
             return {
                 ...state,
-            };
-        case UPDATE_INPUT_FILE: 
-            if(state.isActive) {
-                return {
-                    ...state,
-                    fields: {
-                        ...state.fields,
-                        [action.inputName]: {
-                            ...state.fields[action.inputName],
-                            quantity: action.currentValue,
-                        }
-                    }
-                };
-            };
-            return {
-                ...state,
-            };       
+            };     
         case NOVALIDATE_INPUT_VALUE:
             if(state.isActive) {
                 return {
@@ -123,10 +84,10 @@ const formAboutCompany = (state = initialState, action) => {
                         }
                     }
                 };
-            };
+            }
             return {
                 ...state,
-            }; 
+            };
         case PREV_FORM:
             if(action.prevForm === state.step) {
                 return {
@@ -136,7 +97,7 @@ const formAboutCompany = (state = initialState, action) => {
                     },    
                     isActive: true,
                 } 
-            };
+            }
             return {
                 ...state,
             };    
@@ -152,7 +113,7 @@ const formAboutCompany = (state = initialState, action) => {
             }
             return {
                 ...state,
-            };
+            };        
         case DEACTIVE_FORM:
             if(action.currentForm === state.step) {
                 return {
@@ -162,7 +123,7 @@ const formAboutCompany = (state = initialState, action) => {
                     },    
                     isActive: false,
                 } 
-            };
+            }
             return {
                 ...state,
             };
@@ -174,42 +135,36 @@ const formAboutCompany = (state = initialState, action) => {
                         ...state.fields,
                     },    
                     isLoading: true,
-                    succesForm: true,
+                    succesForm: true
                 } 
-            }
+            };
             return {
                 ...state,
-            };                           
+            };                   
         case SUCCES_FORM:
            return {
                ...state,
                fields: {
-                    companyName: {
-                        ...state.fields.companyName,
+                    nameUser: {
+                        ...state.fields.nameUser,
                         value: ''
                     },
-                    numberOfPeople: {
-                    ...state.fields.numberOfPeople,
+                    lastNameUser: {
+                    ...state.fields.lastNameUser,
                         value: ''
                     },
-                    bussinesArea: {
-                        ...state.fields.bussinesArea,
+                    addressUser: {
+                        ...state.fields.addressUser,
                         value: ''
-                    },
-                    description: {
-                        ...state.fields.description,
-                        value: ''
-                    },
-                    uploadFiles: {
-                        ...state.fields.uploadFiles,
-                        quantity: 0
-                    } 
+                    }
                },
-               succesForm: true
+               succesForm: true,
+               isActive: false,
+               isLoading: false
            }
         default: 
             return state;    
     }
 };
 
-export {formAboutCompany};
+export {formInfoUser};

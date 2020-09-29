@@ -1,0 +1,20 @@
+.fieldTextarea {
+    display: block;
+    width: 100%;
+    min-height: 168px;
+    background-color: #F9F9F9;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 16px;
+}
+
+.fieldTextarea.error {
+	border-color: #F15557;
+}
+
+@media screen and (max-width: 576px) {
+    .fieldTextarea {
+    	font-size: 13px;
+    }
+}

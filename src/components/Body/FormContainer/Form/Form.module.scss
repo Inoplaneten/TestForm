@@ -8,6 +8,14 @@
     border-radius: 8px;
     margin: 51px auto 0 auto;
     padding: 56px;
+    opacity: 0;
+    transform: translateY(30%);
+    transition: .7s;
+}
+
+.form.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 

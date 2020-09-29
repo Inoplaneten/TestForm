@@ -1,0 +1,45 @@
+.inputBox {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.inputBox:first-child {
+    width: 56.5%
+}
+
+.inputBox:nth-child(2) {
+    width: 36%;
+}
+
+.labelForm {
+    display: block;
+    margin-bottom: 8px;
+    color: #636363;
+    font-weight: 600;
+}
+
+.labelForm.requiered {
+    &::after {
+        content: '*';
+        display: inline-block;
+        margin-left: 4px;
+        color: #F15557;
+    }
+}
+
+.errorMessage {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #F15557;
+}
+
+@media screen and (max-width: 576px) {
+    .inputBox:first-child, .inputBox:nth-child(2) {
+        width: 100%;
+    }
+
+    .inputBox {
+        margin-bottom: 27px;
+    }
+}
